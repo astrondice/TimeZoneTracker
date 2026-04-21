@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>World Clock &amp; Alarm Hub</title>
+<meta name="description" content="Live World Clock and Alarm Hub for IST, GMT, EST"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-bar">
+  <div class="brand"><i class="bi bi-globe2"></i> World Clock &amp; Alarm Hub</div>
+  <div style="display:flex;align-items:center;gap:1.2rem">
+    <div class="local-clock" id="local-nav">--:--:--</div>
+    <div class="live-dot">LIVE</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>World Clock &amp;<br/>Alarm Hub</h1>
+  <p class="sub">Powered by <strong style="color:var(--nb)">Gurjot's Mini Project</strong> &mdash; Real-time timezone intelligence</p>
+  <div class="db-badge"><i class="bi bi-database-fill-check"></i> Gurjot-Vault-01 &nbsp;|&nbsp; Port 88 Active</div>
+</header>
+
+<!-- CLOCKS -->
+<section class="clocks">
+  <div class="container-fluid">
+    <div class="row g-4">
+      <!-- INDIA -->
+      <div class="col-lg-4 col-md-6">
+        <div class="cc india h-100">
+          <img class="flag-img" src="https://flagcdn.com/w80/in.png" alt="India flag"/>
+          <div class="city">Mumbai &bull; New Delhi</div>
+          <div class="tz-tag" id="ist-tz">IST &mdash; UTC+5:30</div>
+          <div class="sec-ring-wrap">
+            <svg class="sec-ring" width="54" height="54" viewBox="0 0 54 54">
+              <circle class="sec-ring-bg" cx="27" cy="27" r="22"/>
+              <circle id="arc-ist" class="sec-ring-arc" cx="27" cy="27" r="22" stroke="#ff6b35" stroke-dasharray="138.2" stroke-dashoffset="138.2"/>
+            </svg>
+          </div>
+          <div class="clock-hm" id="ist-time">--:--</div>
+          <div class="clock-ss" id="ist-sec">:--</div>
+          <div class="clock-dt" id="ist-date">—</div>
+        </div>
+      </div>
+      <!-- LONDON -->
+      <div class="col-lg-4 col-md-6">
+        <div class="cc london h-100">
+          <img class="flag-img" src="https://flagcdn.com/w80/gb.png" alt="UK flag"/>
+          <div class="city">London &bull; United Kingdom</div>
+          <div class="tz-tag" id="gmt-tz">GMT &mdash; UTC+0</div>
+          <div class="sec-ring-wrap">
+            <svg class="sec-ring" width="54" height="54" viewBox="0 0 54 54">
+              <circle class="sec-ring-bg" cx="27" cy="27" r="22"/>
+              <circle id="arc-gmt" class="sec-ring-arc" cx="27" cy="27" r="22" stroke="#00d4ff" stroke-dasharray="138.2" stroke-dashoffset="138.2"/>
+            </svg>
+          </div>
+          <div class="clock-hm" id="gmt-time">--:--</div>
+          <div class="clock-ss" id="gmt-sec">:--</div>
+          <div class="clock-dt" id="gmt-date">—</div>
+        </div>
+      </div>
+      <!-- NEW YORK -->
+      <div class="col-lg-4 col-md-12">
+        <div class="cc newyork h-100">
+          <img class="flag-img" src="https://flagcdn.com/w80/us.png" alt="USA flag"/>
+          <div class="city">New York &bull; United States</div>
+          <div class="tz-tag" id="est-tz">EST &mdash; UTC-5</div>
+          <div class="sec-ring-wrap">
+            <svg class="sec-ring" width="54" height="54" viewBox="0 0 54 54">
+              <circle class="sec-ring-bg" cx="27" cy="27" r="22"/>
+              <circle id="arc-est" class="sec-ring-arc" cx="27" cy="27" r="22" stroke="#7c3aed" stroke-dasharray="138.2" stroke-dashoffset="138.2"/>
+            </svg>
+          </div>
+          <div class="clock-hm" id="est-time">--:--</div>
+          <div class="clock-ss" id="est-sec">:--</div>
+          <div class="clock-dt" id="est-date">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALARM DIVIDER -->
+<div class="divider"><span><i class="bi bi-alarm-fill"></i>&nbsp; Alarm Control Center</span></div>
+
+<!-- ALARM -->
+<section class="alarm-sec">
+  <div class="container-fluid">
+    <div class="alarm-card">
+      <h2><i class="bi bi-alarm" style="color:var(--no)"></i> Set Alarm &mdash; Local Time</h2>
+      <div class="alm-grid">
+        <div>
+          <div class="flabel">Time</div>
+          <input type="time" id="alarm-time" aria-label="Alarm time"/>
+        </div>
+        <div>
+          <div class="flabel">Label</div>
+          <input class="lbl-inp" type="text" id="alarm-label" placeholder="e.g. Meeting, Wake-up…" aria-label="Alarm label"/>
+        </div>
+        <button class="btn-set" id="btn-set" onclick="addAlarm()"><i class="bi bi-plus-circle-fill"></i> Set Alarm</button>
+        <button class="btn-clr" id="btn-clr" onclick="clearAll()"><i class="bi bi-trash3"></i> Clear All</button>
+      </div>
+      <div class="alm-table" id="alm-table"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGS DIVIDER -->
+<div class="divider"><span><i class="bi bi-journal-code"></i>&nbsp; Alarm Log &mdash; Vault-01</span></div>
+
+<!-- LOGS -->
+<section class="logs-sec">
+  <div class="container-fluid">
+    <div class="logs-card">
+      <h3><i class="bi bi-database-fill-gear" style="color:var(--nb)"></i> Gurjot-Vault-01 &mdash; Triggered Alarms</h3>
+      <div id="logs-wrap"><div class="no-log">No alarms triggered yet.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div id="toast">
+  <div class="t-icon" id="t-icon">⏰</div>
+  <div class="t-body">
+    <div class="t-title" id="t-title">Alarm</div>
+    <div class="t-msg" id="t-msg"></div>
+  </div>
+</div>
+
+<footer>&copy; 2026 World Clock &amp; Alarm Hub &nbsp;&middot;&nbsp; Gurjot's Mini Project &nbsp;&middot;&nbsp; Port 88</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
