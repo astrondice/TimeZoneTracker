@@ -1,5 +1,37 @@
 <div align="center">
 
+# 🌍 TimeZoneTracker
+
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&pause=1000&color=00D9FF&center=true&vCenter=true&width=900&lines=🌎+Track+Time+Across+The+World;⏰+Smart+Alarm+Management;🌐+Multiple+Time+Zones+In+One+Place;⚡+Real-Time+Clock+Synchronization" />
+
+<br>
+
+<a href="https://astrondice.github.io/TimeZoneTracker/">
+<img src="https://img.shields.io/badge/🚀_LIVE_DEMO-Visit_Now-00C853?style=for-the-badge&logo=googlechrome&logoColor=white">
+</a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/🌍_World_Clocks-Real_Time-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/⏰_Alarm_System-Smart-orange?style=for-the-badge" />
+<img src="https://img.shields.io/badge/📱_Responsive-Mobile_Ready-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/⚡_Live_Tracking-Enabled-purple?style=for-the-badge" />
+
+<br><br>
+
+```text
+### 🌐 Experience Time Without Borders
+
+Track multiple time zones, manage alarms, and stay synchronized across the globe with a modern real-time clock dashboard.
+
+## 🚀 Live Website
+
+### https://astrondice.github.io/TimeZoneTracker/
+
+</div>
+
+---<div align="center">
+
 # 🌍 World Clock & Alarm Hub
 
 ### Track Time Across The World • Set Smart Alarms • Stay Organized
